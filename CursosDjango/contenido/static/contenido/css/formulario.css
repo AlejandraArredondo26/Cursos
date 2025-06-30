@@ -1,0 +1,124 @@
+.formulario-info {
+  max-width: 3500px;
+  background-color: #f9f4fb;
+  margin: 40px auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(124, 63, 118, 0.15);
+  font-family: 'Poppins', sans-serif;
+  color: #4a0072;
+}
+
+.formulario-info h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #7c3f76;
+}
+
+.formulario-info label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.formulario-info input[type="text"],
+.formulario-info input[type="email"],
+.formulario-info select,
+.formulario-info textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  border: 2px solid #d1bee1;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+.formulario-info input[type="text"]:focus,
+.formulario-info input[type="email"]:focus,
+.formulario-info select:focus,
+.formulario-info textarea:focus {
+  border-color: #7c3f76;
+  outline: none;
+  box-shadow: 0 0 8px rgba(124, 63, 118, 0.5);
+}
+
+.btn-enviar {
+  background-color: #7c3f76;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-enviar:hover {
+  background-color: #542748;
+}
+
+/* 📱 Responsividad para tablets */
+@media (max-width: 768px) {
+  .formulario-info {
+    padding: 25px 30px;
+    margin: 30px 20px;
+  }
+
+  .formulario-info h2 {
+    font-size: 1.7rem;
+  }
+
+  .formulario-info label {
+    font-size: 1rem;
+  }
+
+  .formulario-info input,
+  .formulario-info select,
+  .formulario-info textarea {
+    font-size: 0.95rem;
+  }
+
+  .btn-enviar {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Responsividad para móviles */
+@media (max-width: 480px) {
+  .formulario-info {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .formulario-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .formulario-info label {
+    font-size: 0.95rem;
+  }
+
+  .formulario-info input,
+  .formulario-info select,
+  .formulario-info textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .btn-enviar {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,25 @@
+{% extends "contenido/encabezado.html" %} 
+{%block titulo%}Principal {%endblock%} 
+{%block imagen%} {%load static%} {%static 'contenido/images/home.png'%}
+{%endblock%}
+{% block texto %}
+Principal <span>Inicio</span>
+{% endblock %}
+{% block contenido %}
+{% block nav %}
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+    <li>
+      <a href="{% url 'Principal' %}">Principal</a>
+    </li>
+    {% if request.path != '/' %}
+      <li class="breadcrumb-separator">/</li>
+      <li class="current-page">{{ request.path|slice:"1:" }}</li>
+    {% endif %}
+  </ul>
+</div>
+{% endblock %}
+
+<h1>Bienvenidos</h1>
+<p>En este portal verás información acerca de cursos</p>
+{% endblock %}

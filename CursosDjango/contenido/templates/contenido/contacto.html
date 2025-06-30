@@ -1,0 +1,62 @@
+{% extends "contenido/encabezado.html" %}
+{% block titulo %}Cursos {% endblock%} 
+{%block imagen%} {%load static%} {%static 'contenido/images/contacto.png'%}
+{%endblock%}
+{% block texto %}
+Contacto <span>Formulario</span>
+{% endblock %}
+{% block contenido %}
+{% block nav %}
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+    <li>
+      <a href="{% url 'Principal' %}">Principal</a>
+    </li>
+    {% if request.path != '/' %}
+      <li class="breadcrumb-separator">/</li>
+      <li class="current-page">{{ request.path|slice:"1:" }}</li>
+    {% endif %}
+  </ul>
+</div>
+{% endblock %}
+
+
+<div class="formulario-info">
+  <h2>Formulario para solicitar información</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>
+      <label for="nombre">Nombre:</label><br />
+      <input type="text" id="nombre" name="nombre" required />
+    </p>
+    <p>
+      <label for="correo">Correo Electrónico:</label><br />
+      <input type="email" id="correo" name="correo" required />
+    </p>
+    <p>
+      <label for="curso">Curso de interés:</label><br />
+      <select id="curso" name="curso" required>
+        <option value="">-- Selecciona un curso --</option>
+        <option>Base de Datos</option>
+        <option>Programación</option>
+        <option>Redes</option>
+        <option>Ciencia de Datos</option>
+        <option>Inteligencia Artificial</option>
+      </select>
+    </p>
+    <p>
+      <label for="comentarios">Comentarios:</label><br />
+      <textarea
+        id="comentarios"
+        name="comentarios"
+        cols="50"
+        rows="6"
+      ></textarea>
+    </p>
+    <p>
+      <button type="submit" name="enviar" class="btn-enviar">Enviar</button>
+    </p>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+.curso-section {
+  background: #f9f4fb;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(124, 63, 118, 0.1);
+  margin-top: 30px;
+  font-family: 'Poppins', sans-serif;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titulo-cursos {
+  color: #6a1b9a;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.lista-cursos {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista-cursos li {
+  background: #e1bee7;
+  color: #4a0072;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.lista-cursos li:hover {
+  background: #ce93d8;
+  transform: translateX(5px);
+  cursor: pointer;
+}
+
+/* Responsividad para pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+  .curso-section {
+    padding: 30px 20px;
+  }
+
+  .titulo-cursos {
+    font-size: 1.6rem;
+  }
+
+  .lista-cursos li {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Responsividad para pantallas pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  .curso-section {
+    padding: 25px 15px;
+  }
+
+  .titulo-cursos {
+    font-size: 1.4rem;
+  }
+
+  .lista-cursos li {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+}

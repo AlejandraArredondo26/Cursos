@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block titulo %}{% endblock %}</title>
+    {% load static %}
+    <link
+      href="{% static 'contenido/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'contenido/css/sidebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'contenido/css/cursos.css' %}" rel="stylesheet" />
+    <link href="{% static 'contenido/css/formulario.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="user-menu">
+        <img src="{% block imagen %}{% endblock %}" class="user-avatar" />
+        <div class="user-info">
+          {% block texto %}
+          <h4 class="titulo-area">Área</h4>
+          <span class="extra-info">Extra</span>
+          {% endblock %}
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="{% url 'Principal' %}" class="sidebar-link">Home</a>
+        <a href="{% url 'Cursos' %}" class="sidebar-link">Cursos</a>
+        <a href="{% url 'Contacto' %}" class="sidebar-link">Contáctanos</a>
+      </div>
+    </div>
+
+    <div class="content">
+      {% block contenido %} {% block nav %}{% endblock %} {% endblock %}
+    </div>
+  </body>
+</html>
