@@ -1,3 +1,4 @@
+
 .formulario-info {
   max-width: 3500px;
   background-color: #f9f4fb;
@@ -9,6 +10,7 @@
   color: #4a0072;
 }
 
+
 .formulario-info h2 {
   text-align: center;
   font-weight: 700;
@@ -17,17 +19,30 @@
   color: #7c3f76;
 }
 
-.formulario-info label {
+
+.formulario-info label,
+.form-curso label {
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 6px;
   display: inline-block;
 }
 
+
 .formulario-info input[type="text"],
 .formulario-info input[type="email"],
+.formulario-info input[type="number"],
+.formulario-info input[type="file"],
+.formulario-info input[type="checkbox"],
 .formulario-info select,
-.formulario-info textarea {
+.formulario-info textarea,
+.form-curso input[type="text"],
+.form-curso input[type="email"],
+.form-curso input[type="number"],
+.form-curso input[type="file"],
+.form-curso input[type="checkbox"],
+.form-curso select,
+.form-curso textarea {
   width: 100%;
   padding: 12px 15px;
   margin-top: 6px;
@@ -38,20 +53,50 @@
   font-family: 'Poppins', sans-serif;
   transition: border-color 0.3s ease;
   resize: vertical;
+  box-sizing: border-box;
 }
 
-.formulario-info input[type="text"]:focus,
-.formulario-info input[type="email"]:focus,
+
+.formulario-info input[type="checkbox"],
+.form-curso input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin-right: 8px;
+}
+
+
+.formulario-info input:focus,
 .formulario-info select:focus,
-.formulario-info textarea:focus {
+.formulario-info textarea:focus,
+.form-curso input:focus,
+.form-curso select:focus,
+.form-curso textarea:focus {
   border-color: #7c3f76;
   outline: none;
   box-shadow: 0 0 8px rgba(124, 63, 118, 0.5);
 }
 
-.btn-enviar {
+.form-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.preview-imagen {
+  max-width: 300px; 
+  height: auto;
+  margin-top: 15px;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid #d1bee1;
+}
+
+.btn-enviar,
+.btn-guardar {
   background-color: #7c3f76;
-  color: white;
+  color: white !important;
   border: none;
   padding: 14px 32px;
   font-size: 1.1rem;
@@ -59,15 +104,37 @@
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.btn-enviar:hover {
+.btn-enviar:hover,
+.btn-guardar:hover {
   background-color: #542748;
 }
 
-/* 📱 Responsividad para tablets */
+
+.btn-secundario {
+  background: transparent;
+  color: #7c3f76 !important;
+  border: 2px solid #7c3f76;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.btn-secundario:hover {
+  background: #7c3f76;
+  color: #fff !important;
+}
+
+
 @media (max-width: 768px) {
   .formulario-info {
     padding: 25px 30px;
@@ -78,7 +145,8 @@
     font-size: 1.7rem;
   }
 
-  .formulario-info label {
+  .formulario-info label,
+  .form-curso label {
     font-size: 1rem;
   }
 
@@ -88,13 +156,15 @@
     font-size: 0.95rem;
   }
 
-  .btn-enviar {
+  .btn-enviar,
+  .btn-guardar,
+  .btn-secundario {
     padding: 12px 28px;
     font-size: 1rem;
   }
 }
 
-/* 📱 Responsividad para móviles */
+
 @media (max-width: 480px) {
   .formulario-info {
     padding: 20px;
@@ -106,7 +176,8 @@
     margin-bottom: 20px;
   }
 
-  .formulario-info label {
+  .formulario-info label,
+  .form-curso label {
     font-size: 0.95rem;
   }
 
@@ -117,7 +188,9 @@
     font-size: 0.9rem;
   }
 
-  .btn-enviar {
+  .btn-enviar,
+  .btn-guardar,
+  .btn-secundario {
     padding: 10px 24px;
     font-size: 0.95rem;
   }

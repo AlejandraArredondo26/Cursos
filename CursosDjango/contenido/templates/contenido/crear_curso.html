@@ -1,0 +1,44 @@
+{% extends "contenido/encabezado.html" %}
+
+{% block titulo %}
+Crear Curso
+{% endblock %}
+
+{% block imagen %}
+{% load static %}
+{% static 'contenido/images/curso.png' %}
+{% endblock %}
+
+{% block texto %}
+Cursos <span>Nuevo Curso</span>
+{% endblock %}
+
+{% block contenido %}
+{% block nav %}
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+    <li><a href="{% url 'Principal' %}">Principal</a></li>
+    <li class="breadcrumb-separator">/</li>
+    <li><a href="{% url 'Cursos' %}">Cursos</a></li>
+    <li class="breadcrumb-separator">/</li>
+    <li class="current-page">Crear Curso</li>
+  </ul>
+</div>
+{% endblock %}
+
+<!-- Enlace al CSS externo -->
+<link rel="stylesheet" href="{% static 'contenido/css/formulario.css' %}">
+
+<div class="formulario-info">
+  <h2>Formulario para crear curso</h2>
+  <form method="post" enctype="multipart/form-data" class="form-curso">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.as_p }}
+    </div>
+    <p>
+      <button type="submit" class="btn-enviar">Guardar</button>
+    </p>
+  </form>
+</div>
+{% endblock %}

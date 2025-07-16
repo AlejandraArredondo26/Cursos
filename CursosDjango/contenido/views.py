@@ -14,6 +14,17 @@ def contacto(request):
 def cursos(request):
     return render(request, "contenido/cursos.html")
 
+def crear_curso(request):
+    if request.method == 'POST':
+        form = CursoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()  
+            return redirect('Principal')
+    else:
+        form = CursoForm()
+    return render(request, 'contenido/crear_curso.html', {'form': form})
+
+
 
 def editar_curso(request, curso_id):
     curso = get_object_or_404(Curso, pk=curso_id)
