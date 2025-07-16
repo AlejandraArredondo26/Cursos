@@ -1,0 +1,104 @@
+{% extends "contenido/encabezado.html" %} {% block contenido %}
+<h2>Editar Curso: {{ curso.nombre }}</h2>
+
+<form
+  method="post"
+  enctype="multipart/form-data"
+  style="max-width: 600px; margin: auto"
+>
+  {% csrf_token %}
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_nombre"
+      style="display: block; font-weight: bold; margin-bottom: 5px"
+      >Nombre:</label
+    >
+    {{ form.nombre }} {% if form.nombre.errors %}
+    <div style="color: red; font-size: 0.9em">{{ form.nombre.errors }}</div>
+    {% endif %}
+  </div>
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_descripcion"
+      style="display: block; font-weight: bold; margin-bottom: 5px"
+      >Descripción:</label
+    >
+    {{ form.descripcion }} {% if form.descripcion.errors %}
+    <div style="color: red; font-size: 0.9em">
+      {{ form.descripcion.errors }}
+    </div>
+    {% endif %}
+  </div>
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_duracion"
+      style="display: block; font-weight: bold; margin-bottom: 5px"
+      >Duración (días):</label
+    >
+    {{ form.duracion }} {% if form.duracion.errors %}
+    <div style="color: red; font-size: 0.9em">{{ form.duracion.errors }}</div>
+    {% endif %}
+  </div>
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_precio"
+      style="display: block; font-weight: bold; margin-bottom: 5px"
+      >Precio:</label
+    >
+    {{ form.precio }} {% if form.precio.errors %}
+    <div style="color: red; font-size: 0.9em">{{ form.precio.errors }}</div>
+    {% endif %}
+  </div>
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_activo"
+      style="display: inline-block; font-weight: bold; margin-right: 10px"
+      >Activo:</label
+    >
+    {{ form.activo }} {% if form.activo.errors %}
+    <div style="color: red; font-size: 0.9em">{{ form.activo.errors }}</div>
+    {% endif %}
+  </div>
+
+  <div style="margin-bottom: 15px">
+    <label
+      for="id_imagen"
+      style="display: block; font-weight: bold; margin-bottom: 5px"
+      >Imagen:</label
+    >
+    {{ form.imagen }} {% if form.imagen.errors %}
+    <div style="color: red; font-size: 0.9em">{{ form.imagen.errors }}</div>
+    {% endif %} {% if curso.imagen %}
+    <img
+      src="{{ curso.imagen.url }}"
+      alt="Imagen actual"
+      style="max-width: 150px; margin-top: 10px"
+    />
+    {% endif %}
+  </div>
+
+  <button
+    type="submit"
+    style="
+      background-color: #800080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    "
+  >
+    Guardar cambios
+  </button>
+  <a
+    href="{% url 'Principal' %}"
+    style="margin-left: 15px; color: #800080; text-decoration: none"
+    >Cancelar</a
+  >
+</form>
+{% endblock %}

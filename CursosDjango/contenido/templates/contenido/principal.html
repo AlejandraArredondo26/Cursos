@@ -1,25 +1,58 @@
 {% extends "contenido/encabezado.html" %} 
-{%block titulo%}Principal {%endblock%} 
-{%block imagen%} {%load static%} {%static 'contenido/images/home.png'%}
-{%endblock%}
-{% block texto %}
-Principal <span>Inicio</span>
-{% endblock %}
-{% block contenido %}
-{% block nav %}
-<div class="breadcrumb-line">
-  <ul class="breadcrumb">
-    <li>
-      <a href="{% url 'Principal' %}">Principal</a>
-    </li>
-    {% if request.path != '/' %}
-      <li class="breadcrumb-separator">/</li>
-      <li class="current-page">{{ request.path|slice:"1:" }}</li>
-    {% endif %}
-  </ul>
-</div>
+
+{% block titulo %}Principal{% endblock %} 
+
+{% block imagen %} 
+  {% load static %}
+  {% static 'contenido/images/home.png' %}
 {% endblock %}
 
-<h1>Bienvenidos</h1>
-<p>En este portal verás información acerca de cursos</p>
+{% block texto %}
+  Cursos disponibles <span>Listado</span>
+{% endblock %}
+
+{% block contenido %}
+  <h1>Listado de Cursos</h1>
+
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Duración (días)</th>
+        <th>Precio</th>
+        <th>Activo</th>
+        <th>Imagen</th>
+        <th>Fecha de creación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for curso in cursos %}
+        <tr>
+          <td>{{ curso.nombre }}</td>
+          <td>{{ curso.descripcion }}</td>
+          <td>{{ curso.duracion }}</td>
+          <td>${{ curso.precio }}</td>
+          <td>{{ curso.activo|yesno:"Sí,No" }}</td>
+          <td>
+            {% if curso.imagen %}
+              <img src="{{ curso.imagen.url }}" alt="Imagen del curso" width="80" />
+            {% else %}
+              Sin imagen
+            {% endif %}
+          </td>
+          <td>{{ curso.fecha_creacion|date:"d/m/Y H:i" }}</td>
+          <td>
+            <a href="{% url 'editar_curso' curso.id %}">Editar</a> |
+            <a href="{% url 'eliminar_curso' curso.id %}">Eliminar</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8">No hay cursos disponibles.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
